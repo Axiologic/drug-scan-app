@@ -1,5 +1,7 @@
 {
-    "basePagesUrl": "/pages/",
+    "theme":"default",
+    "appVersion": "1.0.0",
+    "basePagesUrl": "/pages",
     "profile": {
         "username": "SSapp",
         "email": "your-email@domain.com",
@@ -13,11 +15,15 @@
             "exact": true,
             "404": "/pages/404.html"
         },
-        "pages": [{
-                "name": "Home",
-                "path": "/home",
-                "icon": "fa-home",
-                "pageSrc": "home.html"
+        "pages": [
+            {
+                "name": "test"
+            },
+            {
+                "name": "Scan"
+            },
+            {
+                "name": "History"
             }
         ]
     }
