@@ -27,6 +27,10 @@
             },
             {
                 "name": "Profile"
+            },
+            {
+                "name": "Drug details",
+                "indexed": false
             }
         ]
     }
