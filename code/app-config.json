@@ -17,10 +17,16 @@
         },
         "pages": [
             {
+                "name": "Landing"
+            },
+            {
                 "name": "Scan"
             },
             {
                 "name": "History"
+            },
+            {
+                "name": "Profile"
             }
         ]
     }
