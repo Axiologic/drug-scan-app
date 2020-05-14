@@ -31,6 +31,10 @@
             {
                 "name": "Drug details",
                 "indexed": false
+            },
+            {
+                "name": "Leaflet",
+                "indexed": false
             }
         ]
     }

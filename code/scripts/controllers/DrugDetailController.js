@@ -5,7 +5,8 @@ import History from "../services/History.js";
 function getViewModel(drug) {
 	let viewModel = {
 		"view-leaflet": {
-			"label": "View eLeaflet (pdf)"
+			"label": "View eLeaflet (pdf)",
+			"eventName": "view-leaflet"
 		},
 		"chapters": [
 			{
@@ -58,5 +59,9 @@ export default class DrugDetailController extends ContainerController {
 		History.add(drug);
 		this.model = this.setModel(getViewModel(drug));
 
+		this.on("view-leaflet", (event)=>{
+			console.log("Caught event", event);
+			history.push("/leaflet");
+		});
 	}
 }

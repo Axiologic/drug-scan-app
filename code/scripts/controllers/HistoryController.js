@@ -19,7 +19,8 @@ export default class HistoryController extends ContainerController {
 		let self = this;
 
 		this.model.addExpression('historyLoaded', function () {
-			return typeof self.model.scannedDrugs !== undefined;
+			console.log("Expression checking", typeof self.model.scannedDrugs !== "undefined");
+			return typeof self.model.scannedDrugs !== "undefined";
 		}, 'scannedDrugs');
 
 		History.getTrack(function (err, track){
@@ -27,17 +28,15 @@ export default class HistoryController extends ContainerController {
 		});
 
 		this.on("clearHistory", (event)=>{
-			console.log("Start clearing drug scan history");
 			History.clear(function(err, track){
-				console.log("History cleared");
 				if(!err){
 					self.model.scannedDrugs = [];
 				}
 			});
 		});
 
-		this.on("viewDrug", (event)=>{
-			console.log("Caught event", event);
+		this.on("view-drug", (event)=>{
+			history.push("/drug-details");
 		}, {capture: true});
 	}
 }
