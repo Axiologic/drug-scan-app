@@ -17,9 +17,6 @@
         },
         "pages": [
             {
-                "name": "Landing"
-            },
-            {
                 "name": "Scan"
             },
             {
