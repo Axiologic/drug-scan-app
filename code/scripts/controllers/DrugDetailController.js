@@ -1,6 +1,5 @@
 import ContainerController from "../../cardinal/controllers/base-controllers/ContainerController.js";
 import Drug from "../models/Drug.js";
-import History from "../services/History.js";
 
 function getViewModel(drug) {
     let viewModel = {

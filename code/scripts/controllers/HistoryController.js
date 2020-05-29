@@ -1,5 +1,4 @@
 import ContainerController from "../../cardinal/controllers/base-controllers/ContainerController.js";
-import History from "../services/History.js";
 
 export default class HistoryController extends ContainerController {
     constructor(element, history) {
