@@ -4,9 +4,16 @@
             <psk-for-each slot="condition-true" data-view-model="scannedDrugs">
                 <psk-form-row columns="2" layout="xs=[2,8] s=[2,8] m=[2,8] xl=[2,10]">
                     <psk-img src="@icon"></psk-img>
-                    <psk-card title="@drug.commercialName" layout="xs=[2,8] s=[2,8] m=[2,8] xl=[2,10]">
-                        <psk-label label="@accessDate"></psk-label> <psk-button event-name="view-drug">view details</psk-button>
-                    </psk-card>
+                    <div>
+                        <psk-label label="@commercialName"></psk-label>
+                        <psk-label label="@activeSubstances"></psk-label>
+                        <psk-label label="@recommendations"></psk-label>
+                        <psk-label label="@dosage"></psk-label>
+                        <psk-label label="@contraIndications"></psk-label>
+                        <psk-label label="@validityDate"></psk-label>
+                        <psk-label label="@productCode"></psk-label>
+                        <psk-button event-name="view-drug">view details</psk-button>
+                    </div>
                 </psk-form-row>
                 <div slot="no-data">No Products scanned yet.</div>
             </psk-for-each>
@@ -14,7 +21,6 @@
                 loading...
             </div>
         </psk-condition>
-
         <psk-grid columns="3" layout="xs=[2,8,2] s=[2,8,2] m=[2,8,2] xl=[2,8,2]">
             <div></div>
             <psk-button view-model="clearHistoryBtn"></psk-button>
