@@ -62,13 +62,21 @@ export default class DrugDetailController extends ContainerController {
             } else {
                 drugs = drugsHistory;
             }
-
-            drugs.push(drug);
-            this.DSUStorage.setItem('/data/drugsHistory.json', JSON.stringify(drugs), err => {
-                if (err) {
-                    throw err;
+            let found = false;
+            for(let i=0; i<drugs.length; i++){
+                if(drugs[i].commercialName === drug.commercialName){
+                    found = true;
+                    break;
                 }
-            });
+            }
+            if(!found){
+                drugs.push(drug);
+                this.DSUStorage.setItem('/data/drugsHistory.json', JSON.stringify(drugs), err => {
+                    if (err) {
+                        throw err;
+                    }
+                });
+            }
         });
 
 

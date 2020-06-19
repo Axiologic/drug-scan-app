@@ -10,10 +10,11 @@ function generateProductCode(length) {
 
 export default class Drug {
     productCode = generateProductCode(20);
-    commercialName = "Propolis PLUS";
+    commercialName = "Propoli PLUS";
     validityDate = "02/08/2025";
     recommendations = "Cough / Sore throat";
     activeSubstances = "Propolis / Vitamin C";
     contraIndications = "Headache";
+    photo = "/data/photos/propoliplus.jpg";
     dosage = "3 pills/day/4days";
 }
