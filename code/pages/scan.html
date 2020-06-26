@@ -1,10 +1,11 @@
-<psk-page title="Scan Drug Code">
-    <psk-form controller-name="ScanController" form-actions="submit">
+<psk-page title="Scan Package">
+    <psk-form controller-name="ScanController">
         <psk-form-row>
-            <psk-img src="/resources/images/scan_drug_new.png"></psk-img>
+            <psk-img src="/resources/images/scan_package.gif"></psk-img>
         </psk-form-row>
-        <psk-form-row >
-            <psk-text-input view-model="productCode"> </psk-text-input>
+        <psk-form-row>
+            <psk-text-input placeholder="Insert SGTIN code" label="Package Code" value="@package_identifier"></psk-text-input>
         </psk-form-row>
+        <psk-button label="Display leaflet" event-name="displayLeaflet"></psk-button>
     </psk-form>
 </psk-page>

@@ -31,4 +31,25 @@ $$.swarms.describe("history", {
 	}
 });
 
+$$.swarm.describe("leafletLoader", {
+	mountDSU: function (mountPath, sgtin) {
+		/*console.log("Executing swarm")
+		let Seed = require("bar").Seed;
+		console.log("Seed class", Seed, rawDossier.getSeed());
+		let x = new Seed(rawDossier.getSeed()).getEndpoint()
+		console.log()
+		const seed = new Seed(undefined, x, sgtin);
+		const seedAsString = seed.getCompactForm().toString(); */
+		const seedAsString = sgtin;
+
+		rawDossier.mount(mountPath, seedAsString, (err) => {
+			console.log("Leaflet loaded");
+			rawDossier.listFiles(mountPath, (err, files) => {
+				console.log("Leaflet DSU contains files:", files);
+				this.return();
+			});
+		});
+	}
+});
+
 console.log("Domain constitution loaded!");

@@ -4,17 +4,8 @@ export default class HistoryController extends ContainerController {
     constructor(element, history) {
         super(element);
         console.log("Preparing to set up the view model");
-        let viewModel = {
-            clearHistoryBtn: {
-                label: "Clear History",
-                eventName: "clearHistory"
-            },
-            viewDrugBtn: {
-                label: ">",
-                eventName: "viewDrug"
-            }
-        };
-        this.setModel(viewModel);
+
+        this.setModel({});
 
         const self = this;
         this.model.addExpression('historyLoaded', function() {
@@ -40,6 +31,10 @@ export default class HistoryController extends ContainerController {
 
         this.on("view-drug", (event) => {
             history.push("/drug-details");
+        }, {capture: true});
+
+        this.on("displayLeaflet", (event) => {
+            history.push("/leaflet");
         }, {capture: true});
     }
 }
