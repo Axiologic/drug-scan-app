@@ -86,8 +86,8 @@
       "actions": [
         {
           "type": "copy",
-          "src": "../themes/",
-          "target": "code/themes",
+          "src": "../themes/savana-theme",
+          "target": "code/themes/savana-theme",
           "options": {
             "overwrite": true
           }
