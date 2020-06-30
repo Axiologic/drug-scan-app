@@ -19,15 +19,15 @@ export default class DisplayLeafletController extends ContainerController {
 			$$.swarmEngine.plug(identity, powerCord);
 		}
 
-		let hash = this.SGTIN;
-		let leafletPath = `/data/${hash}/attachment.png`;
-		$$.interactions.startSwarmAs("test/agent/007", "leafletLoader", "mountDSU", leafletPath, this.SGTIN).onReturn((err, result)=>{
+		let hash = "leaflet";
+		let leafletPath = `/data/${hash}`;
+		$$.interactions.startSwarmAs("test/agent/007", "leafletLoader", "mountDSU", "/app"+leafletPath, this.SGTIN).onReturn((err, result)=>{
 			if(err){
 				console.log(err);
 				return;
 			}
 
-			this.setModel({leaflet_src:leafletPath});
+			this.setModel({leaflet_src:leafletPath+"/attachment.png"});
 
 			this.DSUStorage.getItem('/data/drugsHistory.json', 'json', (err, drugsHistory) => {
 				if (err) {
