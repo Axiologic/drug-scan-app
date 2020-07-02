@@ -35,7 +35,7 @@ export default class DisplayLeafletController extends ContainerController {
 
 			this.setModel({
 				appName:hash,
-				landingPath:"/display-leaflet"
+				landingPath:"/view-leaflet"
 			})
 			//this.setModel({leaflet_src:leafletPath+"/attachment.png"});
 
