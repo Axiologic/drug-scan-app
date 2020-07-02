@@ -8,26 +8,36 @@ export default class DisplayLeafletController extends ContainerController {
 			this.SGTIN = history.location.state.SGTIN;
 		}
 
-		if (typeof $$.interactions === "undefined") {
-			require('callflow').initialise();
+		const identity = "demo/agent/007";
+		//if (typeof $$.interactions === "undefined") {
+			//require('callflow').initialise();
+			$$.swarmEngine = undefined;
+			$$.swarms = undefined;
+			$$.swarm = undefined;
 			const se = require("swarm-engine");
-			const identity = "test/agent/007";
 			se.initialise(identity);
 			const SRPC = se.SmartRemoteChannelPowerCord;
-			let swUrl = "http://localhost:8080/";
+			let swUrl = window.location.origin;
+			if(!swUrl.endsWith("/")){
+				swUrl += "/";
+			}
 			const powerCord = new SRPC([swUrl]);
 			$$.swarmEngine.plug(identity, powerCord);
-		}
+		//}
 
 		let hash = "leaflet";
-		let leafletPath = `/data/${hash}`;
-		$$.interactions.startSwarmAs("test/agent/007", "leafletLoader", "mountDSU", "/app"+leafletPath, this.SGTIN).onReturn((err, result)=>{
+		let productDSU = this.SGTIN;
+		$$.interactions.startSwarmAs(identity, "leafletLoader", "mountProductDSU", "/apps/"+hash, productDSU).onReturn((err, result)=>{
 			if(err){
 				console.log(err);
 				return;
 			}
 
-			this.setModel({leaflet_src:leafletPath+"/attachment.png"});
+			this.setModel({
+				appName:hash,
+				landingPath:"/display-leaflet"
+			})
+			//this.setModel({leaflet_src:leafletPath+"/attachment.png"});
 
 			this.DSUStorage.getItem('/data/drugsHistory.json', 'json', (err, drugsHistory) => {
 				if (err) {

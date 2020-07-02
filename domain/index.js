@@ -49,6 +49,18 @@ $$.swarm.describe("leafletLoader", {
 				this.return();
 			});
 		});
+	},
+	mountProductDSU: function(path, sgtin){
+		let EDFS = require("edfs");
+		EDFS.attachWithSeed(rawDossier.getSeed(), (err, edfs)=>{
+			edfs.loadRawDossier(sgtin, (err, productDSU)=>{
+				console.log(productDSU.getSeed(), "compare my seed");
+				productDSU.listMountedDossiers("/", (err, leaflets)=>{
+					console.log("LOOK", leaflets);
+					rawDossier.mount(path, leaflets[0].identifier, this.return);
+				});
+			});
+		})
 	}
 });
 
