@@ -36,7 +36,8 @@ export default class DisplayLeafletController extends ContainerController {
 			this.setModel({
 				appName:hash,
 				landingPath:"/view-leaflet"
-			})
+			});
+
 			//this.setModel({leaflet_src:leafletPath+"/attachment.png"});
 
 			this.DSUStorage.getItem('/data/drugsHistory.json', 'json', (err, drugsHistory) => {
