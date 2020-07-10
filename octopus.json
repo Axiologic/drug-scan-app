@@ -43,20 +43,6 @@
           }
         }
       ]
-    },
-    {
-      "name": "themes",
-      "src": "",
-      "actions": [
-        {
-          "type": "copy",
-          "src": "../themes/savana-theme",
-          "target": "code/themes/savana-theme",
-          "options": {
-            "overwrite": true
-          }
-        }
-      ]
     }
   ],
   "postbuild": [
